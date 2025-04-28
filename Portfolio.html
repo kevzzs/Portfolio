@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio</title>
+        <style>
+            :root {
+                --bg_color: #0f172a;
+                --accent: #38bdf8;
+                --text_color: #f1f5f9;
+                --radius: 12px;
+                --gradient: linear-gradient(80deg, #00acf5, #ffffff);
+                --bgclip: webkit-background-clip: text;
+                --textfill: -webkit-text-fill: transparent;
+            }
+            body {
+                padding: 0;
+                margin: 0;  
+                font-family:Arial, Helvetica, sans-serif;
+                background-color: var(--bg_color);
+                color: var(--text_color);
+                scroll-behavior: smooth;
+            }
+            nav {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background-color: #0083bb;
+                display: flex;
+                gap: 30px;
+                justify-content: center;
+                align-items: center;
+                padding: 0px 15px;
+                height: 53px;
+            }
+            .logo-container {
+                margin-right: auto;
+                padding: 0;
+            }
+            .logo-container h3 {
+                font-weight: bold;
+                color: #000000;
+                font-size: 20px;
+                padding: 0;
+            }
+            nav a {
+                text-decoration: none;
+                color: black    ;
+                font-weight: bold;
+                padding: 0; 
+                transition: all 0.3s ease-in-out;
+                background-color: transparent;
+                will-change: transform;
+            }
+            nav a:hover {
+                text-decoration: underline;
+                transform: scale(1.20);
+            }
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+                color: var(--bg_color);
+                background-color: var(--accent);
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                font-weight: bold;
+            }
+            .btn:hover {
+                background-color: #0ea5e9;
+                transform: scale(1.05);
+            }
+            .header-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 110px auto;
+            }
+            header {
+                display: flex;
+                flex-direction: row;
+                border: 2px solid #38bdf8;
+                width: 55%;
+                border-radius: 20px;
+            }
+            .img-container {
+                padding: 30px 30px 30px 50px;
+            }
+            img {
+                width: 300px;
+                background-color: #ffffff;
+                border-radius: 20px;
+            }
+            .hero-container {
+                display: flex;
+                justify-content: start;
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 17px;
+            }
+            .hero-container h1 {
+                font-weight: bold;
+                font-size: 47px;
+                line-height: 45px;
+                padding: 30px 0 0;
+                margin: 0;
+            }
+            .hero-container p {
+                color: var(--accent);
+                font-weight: 800;
+                font-size: 25px;
+                padding: 0;
+            }
+            code {
+                color: white;
+            }
+            /* About Me */
+            #about {
+                padding: 100px 20px;
+                background-color: #1e293b;
+                color: var(--text_color);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            .about-container {
+                margin: 60px 0;
+                text-align: center;
+                width: 900px;
+                padding: 20px 0;
+                border-radius: var(--radius);
+                background-color: var(--bg_color);
+                transition: all 0.4s ease-in-out;
+            }
+            .about-container:hover {
+                transform: scale(1.05);
+                border-radius: var(--radius);
+            }
+            #about h2 {
+                font-size: 3rem;
+                margin-bottom: 60px;
+                color: var(--accent);
+            }
+            #about p {
+                font-size: 16px;
+                margin-bottom: 50px;
+            }
+            #about .about-title {
+                padding: 0;
+                margin: 60px auto 0;
+                font-size: 5rem;
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: var(--textfill);
+                color: transparent;
+                letter-spacing: 3px;
+                font-weight: 800;
+            }
+            .grid {
+                background-color: var(--bg_color);
+                text-align: center;
+                width: 900px;
+                padding: 20px 0;
+                border-radius: var(--radius);
+                transition: all 0.4s ease-in-out;
+            }
+            .grid h3 {
+                font-size: 3rem;
+                margin-bottom: 60px;
+                color: var(--accent);
+            }
+            .grid:hover {
+                transform: scale(1.05);
+                border-radius: var(--radius);
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 0 40px 20px;
+            }
+            .card {
+                background: linear-gradient(to right, #00acf5, #ffffff);
+                padding: 30px 0;
+                text-align: center;
+                border-radius: var(--radius);
+                box-shadow: 2px 2px 10px rgb(0, 0, 0);
+                font-weight: bold;
+                color: var(--bg_color);
+            }
+            .card5 {
+                grid-column: span 2;
+            }
+            
+            /* Project Section */
+            #projects {
+                padding: 70px 20px;
+                color: var(--text_color);
+                text-align: center;
+            }
+
+            .project-title {
+                margin-bottom: 60px;
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: var(--textfill);
+                color: transparent;
+                font-size: 5rem;
+                font-weight: 800;
+                letter-spacing: 3px;
+            }
+
+            .project-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .project-card {
+                background-color: var(--accent);
+                padding: 30px 20px;
+                border-radius: var(--radius);
+                box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4);
+                transition: all 0.3s ease;
+            }
+
+            .project-card:hover {
+                transform: scale(1.05);
+                background-color: #334155;
+            }
+
+            .project-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+                color: var(--bg_color);
+            }
+
+            .project-card p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .project-card .btn {
+                background-color: var(--bg_color);
+                color: var(--accent);
+                text-decoration: none;
+                padding: 14px 28px;
+                border-radius: 30px;
+                font-weight: bold;
+                transition: background-color 0.3s ease; 
+            }
+
+            .project-card .btn:hover {
+                background-color: var(--bg_color);
+            }
+
+            /* CONTACT SECTION */
+
+            #contacts {
+                padding: 100px 20px;
+                background-color: #1e293b;
+                color: var(--text_color);
+                text-align: center;
+            }
+
+            .contact-title {
+                margin-bottom: 60px;
+                background: var(--gradient);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: var(--textfill);
+                color: transparent;
+                letter-spacing: 2px;
+                font-weight: 800;
+                font-size: 5rem;
+            }
+
+            .contact-form {
+                max-width: 600px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .contact-form input, .contact-form textarea {
+                width: 100%;
+                padding: 15px;
+                border: none;
+                border-radius: var(--radius);
+                font-size: 1rem;
+                background-color: white;
+                color: var(--text_color);
+            }
+
+            .contact-form input::placeholder, .contact-form textarea::placeholder {
+                color: var(--bg_color);
+            }
+
+            .contact-form input:focus, .contact-form textarea:focus {
+                outline: 2px solid var(--bg_color);
+                background-color: var(--accent);
+            }
+
+            .contact-form button {
+                align-self: center;
+                margin-top: 10px;
+            }
+
+            /* FOOTER SECTION */
+
+            #footer {
+                background-color: var(--bg_color);
+                color: var(--text_color);
+                text-align: center;
+                padding: 30px 20px;
+                font-size: 1rem;
+            }
+
+            #footer .small-text {
+                font-size: 0.85rem;
+                margin-top: 10px;
+                color: #94a3b8;
+            }
+
+            @media (max-width: 768px) {
+                header {
+                    flex-direction: column;
+                    text-align: center;
+                    width: 80%;
+                }
+                .btn-container {
+                    margin: 0 auto;
+                }
+                .img-container {
+                    padding: 20px;
+                }
+
+                img {
+                    width: 200px;
+                }
+
+                .grid-container {
+                    grid-template-columns: (2, 1fr); /* stack the skill cards vertically */
+                }
+
+                .about-container, .grid {
+                    width: 95%;
+                }
+
+                #about .about-title, .contact-title, .project-title{
+                    font-size: 3rem;   
+                    text-align: center;
+                }
+
+                #about, #projects, #contacts {
+                    padding-top: 20px;
+                }
+
+                .grid-container {
+                    padding: 0 10px 10px;
+                    gap: 13px;
+                }
+
+                #about h2 {
+                    font-size: 2rem;
+                }
+
+                #contacts {
+                    text-align: center;
+                    padding: 20px 10px;
+                }
+
+                .contact-form {
+                    max-width: 85%;
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                }
+
+                .contact-form input, .contact-form textarea {
+                    width: 90%;
+                }
+
+                nav {
+                    gap: 10px;
+                    font-size: 13px;
+                }
+
+                .hero-container h1 {
+                    font-size: 35px;
+                    font-weight: 800;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <span  id="hero"></span>
+        <nav>
+            <div class="logo-container">
+                <h3>Kevzzs</h3>
+            </div>
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contacts">Contact</a>
+        </nav>
+        <div class="header-container">
+            <header>
+                <div class="img-container">
+                    <img src="/images/me.png">
+                </div>
+                <div class="hero-container">
+                    <h1>Kevin Chan P. Monterroyo</h1>
+                    <p>IT Student <code>&amp;</code> Future Frontend Developer</p>
+                    <div class="btn-container">
+                        <button class="btn">View Projects</button>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <section id="about">
+            <h2 class="about-title">About Me</h2>
+            <div class="about-container">
+                <h2>Introduction</h2>
+                <p>I'm Kevin Chan Pacifico, an IT student who’s passionate about building clean and responsive websites.<br> 
+                    I enjoy learning new tech and turning ideas into interactive web experiences.</p>
+            </div>
+            <article class="grid">
+                <h3>Skills</h3>
+                <div class="grid-container">
+                    <div class="card card1">HTML</div>
+                    <div class="card card2">CSS</div>
+                    <div class="card card3">Flexbox &amp; Grid</div>
+                    <div class="card card4">Responsive Design</div>
+                    <div class="card card5">Basic Git &amp; Github</div>
+                </div>
+            </article>
+        </section>
+
+        <section id="projects">
+            <h2 class="project-title">Projects</h2>
+            <div class="project-container">
+                <div class="project-card">
+                    <h3>Simple Landing Page</h3>
+                    <p>A clean landing page built with HTML and CSS.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Responsive Website</h3>
+                    <p>A fully responsive website using flexbox and Media Queries.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Mini Portfolio</h3>
+                    <p>My personal mini portfolio page showing my web skills.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Contacts Page</h3>
+                    <p>My personal mini portfolio page showing my web skills.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Mini Blog</h3>
+                    <p>My personal mini portfolio page showing my web skills.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Sportwear Website</h3>
+                    <p>My personal mini portfolio page showing my web skills.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts">
+            <h2 class="contact-title">Contact Me</h2>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+    
+        <footer id="footer">
+            <p>Built with determination by Kevin Chan Monterroyo</p>
+            <p class="small-text">&copy; 2025 Kevssz. All rights reserved.</p>
+        </footer>
+    </body>
+</html>
